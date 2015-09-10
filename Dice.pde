@@ -1,19 +1,28 @@
-Die one;
-Die two;
+Die vader;
+int count;
+int dots;
 void setup()
 {
-	size(500,500);
+	size(808,606);
 	noLoop();
 }
 void draw()
 {
-	background(0);
-	one = new Die(1,1);
-	two = new Die(102,1);
-	one.show();
-	one.roll();
-	two.show();
-	two.roll();
+  background(0);
+  fill(255);
+  textAlign(CENTER);
+  text("Total Count: "+count,404,20);
+  count = 0;
+  for(int y = 101;y <= 606;y+=101)
+  {
+    for(int x = 1;x <= 808;x+=101)
+    {
+      Die vader = new Die(x,y);
+      vader.show();
+      vader.roll();
+      count+=dots;
+    }
+  }
 }
 void mousePressed()
 {
@@ -21,7 +30,7 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	int dots,myX,myY;
+	int myX,myY;
 	Die(int x, int y) //constructor
 	{
 		dots = (int)(Math.random()*6)+1;
@@ -32,25 +41,25 @@ class Die //models one single dice cube
 	{
 		if(dots == 1)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+50,myY+50,15,15);
 		}
 		else if(dots == 2)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+75,myY+75,15,15);
 		}
 		else if(dots == 3)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+50,myY+50,15,15);
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+75,myY+75,15,15);
 		}
 		else if(dots == 4)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+75,myY+75,15,15);
 			ellipse(myX+25,myY+75,15,15);
@@ -58,7 +67,7 @@ class Die //models one single dice cube
 		}
 		else if(dots == 5)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+75,myY+75,15,15);
 			ellipse(myX+25,myY+75,15,15);
@@ -67,7 +76,7 @@ class Die //models one single dice cube
 		}
 		else if(dots == 6)
 		{
-			fill(0);
+			fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
 			ellipse(myX+25,myY+25,15,15);
 			ellipse(myX+75,myY+75,15,15);
 			ellipse(myX+25,myY+75,15,15);
