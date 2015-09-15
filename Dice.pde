@@ -1,6 +1,8 @@
 Die vader;
-int count;
+int roundCount;
 int dots;
+int totalCount;
+int mpNum;
 void setup()
 {
 	size(808,606);
@@ -11,8 +13,11 @@ void draw()
   background(0);
   fill(255);
   textAlign(CENTER);
-  text("Total Count: "+count,404,20);
-  count = 0;
+  text("Round Count: "+roundCount,404,20);
+  text("Total Count: "+totalCount,404,40);
+  text("Mouse was pressed "+mpNum+" times.",404,60);
+  roundCount = 0;
+  totalCount += dots;
   for(int y = 101;y <= 606;y+=101)
   {
     for(int x = 1;x <= 808;x+=101)
@@ -20,13 +25,15 @@ void draw()
       Die vader = new Die(x,y);
       vader.show();
       vader.roll();
-      count+=dots;
+      roundCount+=dots;
+      totalCount+=dots;
     }
   }
 }
 void mousePressed()
 {
 	redraw();
+	mpNum = mpNum + 1;
 }
 class Die //models one single dice cube
 {
