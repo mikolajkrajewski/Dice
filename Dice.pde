@@ -2,11 +2,12 @@ Die vader;
 int roundCount;
 int dots;
 int totalCount;
-int mpNum = 0;
+int mpNum;
 void setup()
 {
 	size(808,606);
 	noLoop();
+	mpNum = 0;
 }
 void draw()
 {
